@@ -195,3 +195,28 @@ if __name__ == '__main__':
     assert is_all_upper('   ') == True
     assert is_all_upper('123') == True
     print("Coding complete? Click 'Check' to earn cool rewards!")
+
+####################################################################################
+my_list = [1,2,3,4,5]
+print('my_list = ', my_list[-1])
+
+# Clear solution for Replace First
+# BackShow description
+# Three solutions + 1 in comments
+#  43 Phil15[Follow]
+# # Change items IN-PLACE.
+def replace_first(items: list) -> list:
+    if items:
+        items.append(items.pop(0))
+    return items
+
+# Slices
+def replace_first(items: list) -> list:
+    return items[1:] + items[:1]
+
+# collections.deque have an useful method: rotate.
+from collections import deque
+def replace_first(items: list) -> deque:
+    items = deque(items)
+    items.rotate(-1)
+    return items
