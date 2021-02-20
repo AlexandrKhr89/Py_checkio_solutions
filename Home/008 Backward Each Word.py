@@ -16,27 +16,34 @@ Precondition: The line consists only from alphabetical symbols and spaces.
 '''
 
 
-def backward_string_by_word(text: str) -> str:
-    # your code here
-    if text != '':
-        word_ = text.split()
-        print(word_)
-        backward = text
-        for w in word_:
-            print('w=', w)
-            backward = text.partition(w)  # append(w[::-1])
-            print(list(backward))
+def backward_string_by_word(text: str):
+    print('text:', text, '(len(text):', len(text), ')')
+    wl = []
+    w = ''
+    bwl = []
+    for i, s in enumerate(text):
+        #		print(i,'s=',s)
+        if s == ' ':
+            #			wl.append(w)
+            w = ''
+            wl.append(s)
+        elif s != ' ':
+            w += s
+            if i != len(text) - 1:
+                if text[i + 1] == ' ':
+                    wl.append(w)
+                    w = ''
+            elif i == len(text) - 1:
+                wl.append(w)
+    for w in wl:
+        #		print(w[::-1])
+        bwl.append(w[::-1])
+    # print(wl)
 
-    else:
-        return ''
-    return ' '#.join(backward)
+    new_text = ''.join(bwl)
+    print(new_text)
+    return new_text
 
-
-print("'':", backward_string_by_word(''))
-print("'world':", backward_string_by_word('world'))
-print("'hello world':", backward_string_by_word('hello world'))
-print("'hello   world':", backward_string_by_word('hello   world'))
-print("'welcome to a game':", backward_string_by_word('welcome to a game'))
 
 if __name__ == '__main__':
     print("Example:")
