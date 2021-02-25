@@ -42,26 +42,32 @@ Precondition:
 0 < len(data) < 1000
 '''
 
-#Your optional code here
-#You can import some modules or create additional functions
+
+# Your optional code here
+# You can import some modules or create additional functions
 
 
 def checkio(data: list) -> list:
-    #Your code here
-    #It's main function. Don't remove this function
-    #It's used for auto-testing and must return a result for check.
+    # Your code here
+    # It's main function. Don't remove this function
+    # It's used for auto-testing and must return a result for check.
 
-    #replace this for solution
+    # replace this for solution
+    print('\ndata:', data)
+    data = [i for i in data if data.count(i) > 1]
+    print('data:', data)
+
     return data
 
-#Some hints
-#You can use list.count(element) method for counting.
-#Create new list with non-unique elements
-#Loop over original list
+
+# Some hints
+# You can use list.count(element) method for counting.
+# Create new list with non-unique elements
+# Loop over original list
 
 
 if __name__ == "__main__":
-    #These "asserts" using only for self-checking and not necessary for auto-testing
+    # These "asserts" using only for self-checking and not necessary for auto-testing
     assert list(checkio([1, 2, 3, 1, 3])) == [1, 3, 1, 3], "1st example"
     assert list(checkio([1, 2, 3, 4, 5])) == [], "2nd example"
     assert list(checkio([5, 5, 5, 5, 5])) == [5, 5, 5, 5, 5], "3rd example"
