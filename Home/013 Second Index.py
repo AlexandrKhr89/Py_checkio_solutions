@@ -24,7 +24,15 @@ def second_index(text: str, symbol: str) -> [int, None]:
         returns the second index of a symbol in a given text
     """
     # your code here
-    return 0
+    t = text
+    s = symbol
+    #print('\ntext: "',t,'" symbol:',s)
+    if s in t and t.count(s)>1:
+        #print(t.index(s, t.index(s)+1))
+        return t.index(s, t.index(s)+1)
+    else:
+        #print('None')
+        return None
 
 
 if __name__ == '__main__':

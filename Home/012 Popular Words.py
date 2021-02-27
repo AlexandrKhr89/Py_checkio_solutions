@@ -35,7 +35,13 @@ The input text will consists of English letters in uppercase and lowercase and w
 
 def popular_words(text: str, words: list) -> dict:
     # your code here
-    return None
+    # my_dict = dict.fromkeys(w)
+    my_dict = {word: text.lower().split().count(word) for word in words}
+    print('\ntext:', text.lower())
+    print('words:', words)
+    print('my_dict:', my_dict)
+
+    return my_dict
 
 
 if __name__ == '__main__':
