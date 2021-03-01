@@ -46,15 +46,15 @@ Precondition:
 
 
 def safe_pawns(pawns: set) -> int:
-    print(pawns)
-    a_d = {'a': ['b'],
-           'b': ['a', 'c'],
-           'c': ['b', 'd'],
-           'd': ['c', 'e'],
-           'e': ['d', 'f'],
-           'f': ['e', 'g'],
-           'g': ['f', 'h'],
-           'h': ['g']}
+    print('\npawns:', pawns)
+    print('a', ord('a'), type(ord('a')))
+    print('b', ord('b'))
+    print('c', ord('c'))
+    print('d', ord('d'))
+    print('e', ord('e'))
+    print('f', ord('f'))
+    print('g', ord('g'))
+    print('h', ord('h'))
 
     a_l = {
         'b': 'a',
@@ -74,23 +74,24 @@ def safe_pawns(pawns: set) -> int:
            'g': 'h',
            }
 
-    print(a_d)
-    print(a_d.get('a'))
-    defenced = set()
-    print(defenced)
+    defenced = []
     for i in pawns:
-        print(i[0], i[1], '->', a_d.get(i[0]), int(i[1]) + 1)
-        print('->', str(a_l.get(i[0])) + str(int(i[1]) + 1))
-        print('->', str(a_r.get(i[0])) + str(int(i[1]) + 1))
         dpl = str(a_l.get(i[0])) + str(int(i[1]) + 1)
-        print('dpl:', dpl, type(dpl))
         dpr = str(a_r.get(i[0])) + str(int(i[1]) + 1)
-        print('dpr:', dpr)
-        defenced.update(dpl)
-        print(defenced)
-        defenced.update(dpr)
-        print(defenced)
-    return 0
+        defenced.append(dpl)
+        defenced.append(dpr)
+    print('defenced:', defenced)
+    def_count = 0
+    for i in pawns:
+        print(
+            'i:', i, '->', chr(ord(i[0]) - 1)+str(int(i[1])+1),
+            chr(ord(i[0]) + 1) + str(int(i[1]) + 1)
+        )
+        if i in set(defenced):
+            def_count += 1
+    print('def_count:', def_count)
+
+    return def_count
 
 
 if __name__ == '__main__':
