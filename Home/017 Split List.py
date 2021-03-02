@@ -17,9 +17,23 @@ split_list([1, 2, 3, 4, 5, 6]) == [[1, 2, 3], [4, 5, 6]]
 split_list([1, 2, 3]) == [[1, 2], [3]]
 '''
 
+
 def split_list(items: list) -> list:
     # your code here
-    return [items]
+    i = items
+    print('\ni:', i)
+
+    # print('len(i):', len(i))
+    # print('len(i)%2:', len(i) % 2)
+    # print('3//2=', 3 // 2)
+    # if len(i) % 2 == 0:
+    #     print('i[:len(i)//2]:', i[:len(i) // 2])
+    #     print('i[len(i)//2:]:', i[len(i) // 2:])
+    # else:
+    #     print('i[:1 + len(i) // 2]:', i[:1 + len(i) // 2])
+    #     print('i[len(i) // 2 -1:]:', i[1 + len(i) // 2:])
+
+    return [i[:len(i) // 2], i[len(i) // 2:]] if len(i) % 2 == 0 else [i[:1 + len(i) // 2], i[1 + len(i) // 2:]]
 
 
 if __name__ == '__main__':
