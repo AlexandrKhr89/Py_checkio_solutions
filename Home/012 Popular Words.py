@@ -33,6 +33,7 @@ Precondition:
 The input text will consists of English letters in uppercase and lowercase and whitespaces.
 """
 
+
 def popular_words(text: str, words: list) -> dict:
     # your code here
     # my_dict = dict.fromkeys(w)
