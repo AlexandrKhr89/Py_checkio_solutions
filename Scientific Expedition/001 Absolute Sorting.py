@@ -33,10 +33,7 @@ all(-100 < x < 100 for x in array)
 
 
 def checkio(numbers_array: tuple) -> list:
-    print('numbers_array:', numbers_array)
-    print(sorted(numbers_array))
-    print(sorted(numbers_array, key=abs(numbers_array)))
-    return numbers_array
+    return sorted(numbers_array, key=abs)
 
 
 # These "asserts" using only for self-checking and not necessary for auto-testing
